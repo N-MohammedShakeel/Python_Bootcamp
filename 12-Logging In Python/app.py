@@ -1,13 +1,12 @@
 import logging
 
 ## logging setting
-
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     datefmt='%Y-%m-%d %H:%M:%S',
     handlers=[
-        logging.FileHandler("app1.log"),
+        logging.FileHandler("ArithmeticApp.log"),
         logging.StreamHandler()
     ]
 )
@@ -41,4 +40,5 @@ def divide(a, b):
 add(10,15)
 subtract(15,10)
 multiply(10,20)
+divide(20,2)
 divide(20,0)
