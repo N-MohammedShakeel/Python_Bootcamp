@@ -5,7 +5,6 @@ Factorial calculations, especially for large numbers,
 involve significant computational work. Multiprocessing 
 can be used to distribute the workload across multiple 
 CPU cores, improving performance.
-
 '''
 
 import multiprocessing
@@ -16,7 +15,7 @@ import time
 # Increase the maximum number of digits for integer conversion
 sys.set_int_max_str_digits(100000)
 
-## function to compute factorials of a given number 
+# function to compute factorials of a given number 
 
 def computer_factorial(number):
     print(f"Computing factorial of {number}")
@@ -29,7 +28,7 @@ if __name__=="__main__":
 
     start_time=time.time()
 
-    ##create a pool of worker processes
+    # create a pool of worker processes
     with multiprocessing.Pool() as pool:
         results=pool.map(computer_factorial,numbers)
 
