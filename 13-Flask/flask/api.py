@@ -13,10 +13,9 @@ items = [
 
 @app.route('/')
 def home():
-    return "Welcome To The Sample To DO List App"
+    return "Welcome To The Sample Todo List App"
 
 ## Get: Retrieve all the items
-
 @app.route('/items',methods=['GET'])
 def get_items():
     return jsonify(items)
@@ -24,7 +23,7 @@ def get_items():
 ## get: Retireve a specific item by Id
 @app.route('/items/<int:item_id>',methods=['GET'])
 def get_item(item_id):
-    item=next((item for item in items if item["id"]==item_id),None)
+    item = next((item for item in items if item["id"] == item_id),None)
     if item is None:
         return jsonify({"error":"item not found"})
     return jsonify(item)
@@ -38,8 +37,6 @@ def create_item():
         "id": items[-1]["id"] + 1 if items else 1,
         "name":request.json['name'],
         "description":request.json["description"]
-
-
     }
     items.append(new_item)
     return jsonify(new_item)
@@ -60,9 +57,6 @@ def delete_item(item_id):
     global items
     items = [item for item in items if item["id"] != item_id]
     return jsonify({"result": "Item deleted"})
-
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)
