@@ -12,8 +12,16 @@ def load_data():
 
 df,target_names=load_data()
 
-model=RandomForestClassifier()
-model.fit(df.iloc[:,:-1],df['species'])
+st.title("Iris Species Classification")
+st.write("This app predicts the species of iris flowers based on their features.")
+
+st.write("Dataset:")
+st.write(df)
+st.write("Available species:")
+st.write(target_names)
+
+model = RandomForestClassifier()
+model.fit(df.iloc[:, :-1], df['species'])
 
 st.sidebar.title("Input Features")
 sepal_length = st.sidebar.slider("Sepal length", float(df['sepal length (cm)'].min()), float(df['sepal length (cm)'].max()))
@@ -23,10 +31,11 @@ petal_width = st.sidebar.slider("Petal width", float(df['petal width (cm)'].min(
 
 input_data = [[sepal_length, sepal_width, petal_length, petal_width]]
 
-## PRediction
+## Prediction
 prediction = model.predict(input_data)
 predicted_species = target_names[prediction[0]]
 
-st.write("Prediction")
-st.write(f"The predicted species is: {predicted_species}")
+st.title("Prediction")
+st.write("Based on the input features, the model predicts the species of the iris flower.")
+st.write(f"The predicted species is: **{predicted_species}**")
 
