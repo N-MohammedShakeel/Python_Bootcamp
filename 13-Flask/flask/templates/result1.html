@@ -1,19 +1,21 @@
-<html>
-<h2>
-    Final Results
-</h2>
-<body>
-
-   
-     {% for key,value in results.items()   %}
-     
-      {# This is the comment section #}
-      <h1>{{ key }}<h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Final Results</title>
+  </head>
+  <!-- <body>
+    <h2>Final Results</h2>
+    {% for key, value in results.items() %}
+      <h1>{{ key }}</h1>
       <h2>{{ value }}</h2>
+    {% endfor %}
+  </body> -->
 
-    
-     {% endfor %}
-
-    
-</body>
+  <body>
+    <h2>Final Results</h2>
+    <h1>score : {{ results['score'] }}</h1>
+    <h2>result : {{ results['res'] }}</h2>
+  </body>
 </html>
